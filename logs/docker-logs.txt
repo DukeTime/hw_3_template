@@ -1,0 +1,14 @@
+redis-1  | 1:C 24 Nov 2026 21:00:53.517 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+app-1    | 2026-11-24 21:00:59,929 listening port=8000 storage=redis
+redis-1  | 1:C 24 Nov 2026 21:00:53.517 * Redis version=7.4.12, bits=64, commit=00000000, modified=0, pid=1, just started
+redis-1  | 1:C 24 Nov 2026 21:00:53.517 * Configuration loaded
+redis-1  | 1:M 24 Nov 2026 21:00:53.518 * monotonic clock: POSIX clock_gettime
+redis-1  | 1:M 24 Nov 2026 21:00:53.520 * Running mode=standalone, port=6379.
+redis-1  | 1:M 24 Nov 2026 21:00:53.522 * Server initialized
+app-1    | 2026-11-24 21:01:03,794 http 172.26.0.1 "GET / HTTP/1.1" 200 -
+app-1    | 2026-11-24 21:01:03,857 http 172.26.0.1 "POST /increment HTTP/1.1" 200 -
+app-1    | 2026-11-24 21:01:04,728 http 127.0.0.1 "GET /healthz HTTP/1.1" 200 -
+app-1    | 2026-11-24 21:01:14,938 http 127.0.0.1 "GET /healthz HTTP/1.1" 200 -
+redis-1  | 1:M 24 Nov 2026 21:00:53.529 * Creating AOF base file appendonly.aof.1.base.rdb on server start
+redis-1  | 1:M 24 Nov 2026 21:00:53.536 * Creating AOF incr file appendonly.aof.1.incr.aof on server start
+redis-1  | 1:M 24 Nov 2026 21:00:53.536 * Ready to accept connections tcp

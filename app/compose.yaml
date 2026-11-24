@@ -1,0 +1,38 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${HOST_PORT}:${PORT}"
+    env_file:
+      - .env
+    environment:
+      STORAGE: redis
+      REDIS_URL: redis://redis:6379/0
+    read_only: true
+    user: "10001:10001"
+    mem_limit: 256m
+    cpus: 1.0
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://localhost:${PORT}/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+volumes:
+  redis_data:

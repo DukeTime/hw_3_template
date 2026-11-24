@@ -1,0 +1,103 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 553B 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 218B 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 90B 0.0s done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.12-slim@sha256:191083cdf6c7bda8c76158983163ead5d5cf7b77cf3033e805bb0f5296f51b4b
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 254B 0.0s done
+#6 DONE 0.0s
+
+#7 [3/5] COPY requirements.txt .
+#7 CACHED
+
+#8 [2/5] WORKDIR /app
+#8 CACHED
+
+#9 [4/5] RUN pip install -r requirements.txt
+#9 CACHED
+
+#10 [5/5] COPY . .
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.1s done
+#11 writing image sha256:95e2fc1c67de698b7d306f64111367114fa45ebf0449f772c2120fa41625e38d done
+#11 naming to docker.io/library/hw3check1795555146205-app 0.0s done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ app  Built
+ Network hw3check1795555146205_default  Creating
+ Network hw3check1795555146205_default  Created
+ Volume "hw3check1795555146205_redis_data"  Creating
+ Volume "hw3check1795555146205_redis_data"  Created
+ Container hw3check1795555146205-redis-1  Creating
+ Container hw3check1795555146205-redis-1  Created
+ Container hw3check1795555146205-app-1  Creating
+ Container hw3check1795555146205-app-1  Created
+ Container hw3check1795555146205-redis-1  Starting
+ Container hw3check1795555146205-redis-1  Started
+ Container hw3check1795555146205-redis-1  Waiting
+ Container hw3check1795555146205-redis-1  Healthy
+ Container hw3check1795555146205-app-1  Starting
+ Container hw3check1795555146205-app-1  Started
+counter after 3 increments: 3
+ Container hw3check1795555146205-app-1  Stopping
+ Container hw3check1795555146205-app-1  Stopped
+ Container hw3check1795555146205-app-1  Removing
+ Container hw3check1795555146205-app-1  Removed
+ Container hw3check1795555146205-redis-1  Stopping
+ Container hw3check1795555146205-redis-1  Stopped
+ Container hw3check1795555146205-redis-1  Removing
+ Container hw3check1795555146205-redis-1  Removed
+ Network hw3check1795555146205_default  Removing
+ Network hw3check1795555146205_default  Removed
+ Network hw3check1795555146205_default  Creating
+ Network hw3check1795555146205_default  Created
+ Container hw3check1795555146205-redis-1  Creating
+ Container hw3check1795555146205-redis-1  Created
+ Container hw3check1795555146205-app-1  Creating
+ Container hw3check1795555146205-app-1  Created
+ Container hw3check1795555146205-redis-1  Starting
+ Container hw3check1795555146205-redis-1  Started
+ Container hw3check1795555146205-redis-1  Waiting
+ Container hw3check1795555146205-redis-1  Healthy
+ Container hw3check1795555146205-app-1  Starting
+ Container hw3check1795555146205-app-1  Started
+counter after down/up: 3
+ Container hw3check1795555146205-redis-1  Running
+ Container hw3check1795555146205-app-1  Recreate
+ Container hw3check1795555146205-app-1  Recreated
+ Container hw3check1795555146205-redis-1  Waiting
+ Container hw3check1795555146205-redis-1  Healthy
+ Container hw3check1795555146205-app-1  Starting
+ Container hw3check1795555146205-app-1  Started
+counter retained after app recreation: 3
+ Container hw3check1795555146205-redis-1  Stopping
+ Container hw3check1795555146205-redis-1  Stopped
+redis stopped responses: healthz=200 readyz=503 increment=503
+redis stopped: healthz=200 readyz=503 increment=503
+ Container hw3check1795555146205-redis-1  Starting
+ Container hw3check1795555146205-redis-1  Started
+redis recovered without app restart: count=4
+ Container hw3check1795555146205-app-1  Stopping
+ Container hw3check1795555146205-app-1  Stopped
+ Container hw3check1795555146205-redis-1  Stopping
+ Container hw3check1795555146205-redis-1  Stopped
+backup created and archive checked: /c/Users/DukeOfTimes/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/work/hw_3_template/app/redis-backup.tar
+PASS
