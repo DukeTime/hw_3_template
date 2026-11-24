@@ -1,0 +1,43 @@
+name: udalovmakarhw3
+services:
+  app:
+    #image: prog_tools_hw3
+    build: .
+    ports:
+      - "${HOST_PORT}:${PORT}"
+    env_file:
+      - .env
+    volumes:
+      - sqlite:/data
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:${PORT}/healthz"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  redis:
+    image: redis:7-alpine
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+    volumes:
+      - redis_data:/data
+
+    command: ["redis-server", "--appendonly", "yes"]
+
+
+volumes:
+  sqlite_data:
+  redis_data:
+
+
+
